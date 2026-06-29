@@ -1,0 +1,7 @@
+.env
+/__pycache__
+history_chat.db
+/frames
+test_tools.py
+yolov8n.pt
+/.ai-home
