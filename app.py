@@ -46,13 +46,20 @@ def ask(payload: dict):
     if not question:
         raise HTTPException(status_code=400, detail="Champ 'question' manquant")
     
+    history = db_logger.get_recent_history(max_exchanges=5, max_chars=4000)
     # Routing
     agent_type = route(question)
     agent = netrunner_agent if agent_type == AgentType.NETRUNNER else basic_agent
 
+    full_message = []
+    for q, r in history:
+        full_message.append(("human", q))
+        full_message.append(("assistant", r))
+    full_message.append(("human", question))
+
     try:
         response = agent.invoke(
-            {"messages": [("human", question)]},
+            {"messages": full_message},
             config={"configurable": {"thread_id": str(uuid7())}}
         )
         answer = response["messages"][-1].content.strip()

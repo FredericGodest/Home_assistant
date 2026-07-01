@@ -48,12 +48,3 @@ def query_appareil(query: str) -> str:
         Utilise cet outil pour toute question technique sur un appareil."""
     
     return _query_collection("appareil", query)
-
-def query_appareil_test(query: str) -> str:
-    """Recherche dans les manuels des appareils de la maison : 
-        lave linge, lave vaisselle, machine à café, appareil photo nikon et sony etc. 
-        Utilise cet outil pour toute question technique sur un appareil."""
-    
-    return _query_collection("appareil", query)
-
-print(query_appareil_test("détartrage machine à café"))
