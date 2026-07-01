@@ -19,5 +19,5 @@ tmux kill-session -t gw
 tmux kill-session -t gw 2>/dev/null; tmux new -s gw -d 'python -m uvicorn app:app --host 0.0.0.0 --port 8000'
 
 # SQL
-sqlite3 mistral.db "SELECT * FROM conversations;"
+sqlite3 history_chat.db "SELECT * FROM conversations;"
 

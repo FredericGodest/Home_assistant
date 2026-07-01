@@ -5,3 +5,5 @@ history_chat.db
 test_tools.py
 yolov8n.pt
 /.ai-home
+/doc_maison
+/chroma_db
